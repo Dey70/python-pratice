@@ -1,1 +1,2 @@
-print("Number of letters in your name: " + str(len(input("Enter your name: "))))
+highest_mark = input("What's your highest mark in maths?\n")
+print(f"Oh! It's {highest_mark}")
