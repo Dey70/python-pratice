@@ -15,3 +15,12 @@ def encrypt(original_text, shift_amount):
     print(f"The encoded text is {cipher_text}")
 encrypt(original_text=text, shift_amount=shift)
 
+def decrypt(original_text, shift_amount):
+    plain_text = "" 
+
+    for letter in original_text:
+        shifted_location = alphabet.index(letter) - shift_amount
+        shifted_location %= len(alphabet)
+        plain_text += alphabet[shifted_location]
+    print(f"The decoded text is {plain_text}")
+decrypt(original_text=text, shift_amount=shift)
