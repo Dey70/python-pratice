@@ -5,22 +5,15 @@ text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
 
-def encrypt(original_text, shift_amount):
-    cipher_text = ""
-
-    for letter in original_text:
-        shifted_location= alphabet.index(letter) + shift_amount
-        shifted_location %= len(alphabet)  # Wrap around if it exceeds the length of the alphabet
-        cipher_text += alphabet[shifted_location]
-    print(f"The encoded text is {cipher_text}")
-encrypt(original_text=text, shift_amount=shift)
-
-def decrypt(original_text, shift_amount):
+def caear_cipher(original_text, shift_amount, encode_or_decode):
     plain_text = "" 
-
     for letter in original_text:
-        shifted_location = alphabet.index(letter) - shift_amount
+        if encode_or_decode == "decode":
+            shifted_amount *= -1
+        shifted_location = alphabet.index(letter) + shift_amount
         shifted_location %= len(alphabet)
         plain_text += alphabet[shifted_location]
-    print(f"The decoded text is {plain_text}")
-decrypt(original_text=text, shift_amount=shift)
+
+    print(f"The {encode_or_decode}d text is {plain_text}")
+
+decrypt(original_text=text, shift_amount=shift, encode_or_decode=direction)
